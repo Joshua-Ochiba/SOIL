@@ -1,0 +1,155 @@
+/* Fonts are loaded via <link> in index.html with display=swap — no @import needed */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* :root = LIGHT theme — warm ivory/sand built from the SOIL palette so it
+     complements the brand. The DARK theme (original look) lives in .dark below
+     and is applied by ThemeController everywhere except where light is opt-out.
+     Fonts + radius are theme-independent and live here only. */
+  :root {
+    --font-display: 'Sankofa Display', serif;
+    --font-body: 'Cormorant Garamond', serif;
+    --font-ui: 'Space Grotesk', sans-serif;
+    --radius: 0.25rem;
+
+    /* "A living archive of indigenous intelligence" — aged parchment, warm
+       umber ink, bronze rules. Not an inversion of dark; its own world:
+       wisdom / memory / illumination. No pure white, no cold grey. */
+    --background: 39 33% 87%;          /* aged parchment */
+    --foreground: 25 42% 11%;          /* deep espresso-umber ink — strong, readable */
+    --card: 41 40% 92%;                /* lighter parchment leaf — separates from page */
+    --card-foreground: 25 42% 11%;
+    --popover: 41 40% 92%;
+    --popover-foreground: 25 42% 11%;
+    --primary: 12 50% 33%;             /* terracotta earth */
+    --primary-foreground: 40 34% 95%;
+    --secondary: 37 28% 79%;           /* sun-bleached sand */
+    --secondary-foreground: 25 42% 15%;
+    --muted: 38 26% 82%;               /* limestone surface */
+    --muted-foreground: 27 30% 26%;    /* deep clay — readable secondary ink */
+    --accent: 32 76% 30%;              /* deep aged bronze — legible gold ink on parchment */
+    --accent-foreground: 40 36% 95%;
+    --destructive: 4 60% 40%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 34 30% 60%;              /* bronze rule — clearly visible on parchment */
+    --input: 35 26% 70%;
+    --ring: 32 76% 30%;
+    --chart-1: 12 46% 35%;
+    --chart-2: 105 22% 32%;
+    --chart-3: 34 68% 36%;
+    --chart-4: 30 30% 48%;
+    --chart-5: 20 40% 42%;
+    --sidebar-background: 39 32% 86%;
+    --sidebar-foreground: 26 33% 16%;
+    --sidebar-primary: 34 68% 36%;
+    --sidebar-primary-foreground: 40 34% 95%;
+    --sidebar-accent: 37 28% 80%;
+    --sidebar-accent-foreground: 26 33% 20%;
+    --sidebar-border: 35 30% 68%;
+    --sidebar-ring: 34 68% 36%;
+  }
+
+  .dark {
+    --background: 18 12% 11%;
+    --foreground: 40 20% 93%;
+    --card: 20 14% 15%;
+    --card-foreground: 40 20% 93%;
+    --popover: 20 14% 15%;
+    --popover-foreground: 40 20% 93%;
+    --primary: 10 51% 37%;
+    --primary-foreground: 40 20% 93%;
+    --secondary: 105 22% 18%;
+    --secondary-foreground: 40 20% 93%;
+    --muted: 20 10% 18%;
+    --muted-foreground: 30 10% 60%;
+    --accent: 39 66% 53%;
+    --accent-foreground: 18 12% 11%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 20 10% 22%;
+    --input: 20 10% 22%;
+    --ring: 39 66% 53%;
+    --chart-1: 10 51% 37%;
+    --chart-2: 105 22% 18%;
+    --chart-3: 39 66% 53%;
+    --chart-4: 30 30% 45%;
+    --chart-5: 20 40% 30%;
+    --sidebar-background: 18 12% 11%;
+    --sidebar-foreground: 40 20% 93%;
+    --sidebar-primary: 39 66% 53%;
+    --sidebar-primary-foreground: 18 12% 11%;
+    --sidebar-accent: 20 14% 15%;
+    --sidebar-accent-foreground: 40 20% 93%;
+    --sidebar-border: 20 10% 22%;
+    --sidebar-ring: 39 66% 53%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body);
+    overflow-x: hidden;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+  }
+}
+
+/* Parchment paper-grain — a restrained fibre texture for light mode. Apply to
+   a full-bleed layer (opacity ~0.06, dark:hidden). feTurbulence = no image asset,
+   multiply blend so it reads as fibres in the paper, never a digital noise overlay. */
+.archive-grain {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='p'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23p)'/%3E%3C/svg%3E");
+  background-size: 240px 240px;
+  mix-blend-mode: multiply;
+}
+
+/* "Light breathing" — an extremely slow material shift for light mode. Uses
+   TRANSFORM (GPU-composited) not opacity, so it never triggers layout/paint on
+   scroll — keeps the navbar + scroll-reveals smooth. Disabled for reduced-motion. */
+@keyframes archiveBreathe {
+  0%, 100% { transform: scale(1); }
+  50%      { transform: scale(1.045); }
+}
+.archive-breathe {
+  animation: archiveBreathe 24s ease-in-out infinite;
+  will-change: transform;
+  transform: translateZ(0);
+}
+@media (prefers-reduced-motion: reduce) {
+  .archive-breathe { animation: none; }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--muted));
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--primary) / 0.5);
+  border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--accent) / 0.7);
+}
+
+/* Selection */
+::selection {
+  background: hsl(var(--accent) / 0.25);
+  color: hsl(var(--foreground));
+}

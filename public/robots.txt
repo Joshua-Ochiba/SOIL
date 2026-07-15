@@ -1,0 +1,12 @@
+# SOIL — robots.txt
+# Public site: open to all crawlers. Admin + checkout pages are excluded.
+
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /admin/
+Disallow: /studio/success
+Disallow: /studio/cancelled
+
+# Sitemap of known static routes (product pages are dynamic — Google still discovers them via internal links)
+Sitemap: https://soil-v1-chibbss-projects.vercel.app/sitemap.xml

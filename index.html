@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#141210" />
+    <meta name="color-scheme" content="dark light" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Theme: apply the persisted theme BEFORE first paint to avoid a
+         light→dark flash. Home (/) and Admin (/admin*) are always dark.
+         Mirrors the logic in themeStore + ThemeController. -->
+    <script>
+      (function () {
+        try {
+          var theme = localStorage.getItem('soil-theme') === 'light' ? 'light' : 'dark';
+          var p = location.pathname;
+          var forcedDark = p === '/' || p.indexOf('/admin') === 0;
+          if (forcedDark || theme === 'dark') document.documentElement.classList.add('dark');
+        } catch (e) {
+          document.documentElement.classList.add('dark');
+        }
+      })();
+    </script>
+
+    <!-- Primary -->
+    <title>SOIL — Cultivating the Future</title>
+    <meta name="description" content="SOIL is a transformative ecosystem rooted in African heritage — a living, rooted system of ideas, people, projects and values. Cultivating sustainable solutions for Africa and the World." />
+    <meta name="author" content="SOIL Sons & Daughters" />
+
+    <!-- Canonical — replace with the real production URL once domain is live -->
+    <link rel="canonical" href="https://soil-v1-chibbss-projects.vercel.app/" />
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" href="/eagle-silhouette.png" />
+    <link rel="apple-touch-icon" href="/eagle-silhouette.png" />
+
+    <!-- Preload the first scrollytell frame in parallel with the JS bundle
+         so the loading screen doesn't have to wait on a serial fetch.
+         Browser pulls it as soon as the HTML parses; canvas component finds
+         it already cached when it tries to load. -->
+    <link rel="preload" as="image" href="/frames/frame_0001.webp" type="image/webp" />
+    <link rel="preload" as="image" href="/frames/frame_0002.webp" type="image/webp" />
+    <link rel="preload" as="image" href="/frames/frame_0003.webp" type="image/webp" />
+
+    <!-- Open Graph (Facebook, LinkedIn, WhatsApp, iMessage, Discord, Slack) -->
+    <meta property="og:type"            content="website" />
+    <meta property="og:site_name"       content="SOIL" />
+    <meta property="og:title"           content="SOIL — Cultivating the Future" />
+    <meta property="og:description"     content="A transformative ecosystem rooted in African heritage. Cultivating sustainable solutions for Africa and the World." />
+    <meta property="og:url"             content="https://soil-v1-chibbss-projects.vercel.app/" />
+    <meta property="og:image"           content="https://soil-v1-chibbss-projects.vercel.app/soil-reveal/soil-reveal-poster.jpg" />
+    <meta property="og:image:width"     content="1920" />
+    <meta property="og:image:height"    content="1080" />
+    <meta property="og:image:alt"       content="SOIL — cinematic poster of the SOIL ecosystem" />
+    <meta property="og:locale"          content="en_US" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card"           content="summary_large_image" />
+    <meta name="twitter:title"          content="SOIL — Cultivating the Future" />
+    <meta name="twitter:description"    content="A transformative ecosystem rooted in African heritage." />
+    <meta name="twitter:image"          content="https://soil-v1-chibbss-projects.vercel.app/soil-reveal/soil-reveal-poster.jpg" />
+    <meta name="twitter:image:alt"      content="SOIL — cinematic poster of the SOIL ecosystem" />
+
+    <!-- Structured data: Organization — surfaces brand info in Google -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "SOIL",
+      "alternateName": "SOIL Sons & Daughters",
+      "url": "https://soil-v1-chibbss-projects.vercel.app/",
+      "logo": "https://soil-v1-chibbss-projects.vercel.app/eagle-silhouette.png",
+      "description": "A transformative ecosystem rooted in African heritage — cultivating sustainable solutions for Africa and the World."
+    }
+    </script>
+
+    <!-- Fonts: single consolidated request, display=swap prevents render-blocking -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Sankofa+Display&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Space+Grotesk:wght@300;400;500;600&display=swap"
+    />
+
+    <!-- CDN preconnects for VantaBirds (lazy-loaded Three.js) -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+
+    <!-- Preconnect to Supabase storage for product images -->
+    <link rel="preconnect" href="https://vdjvotsjhawamwstgkym.supabase.co" />
+</head>
+
+<body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+</body>
+
+</html>
