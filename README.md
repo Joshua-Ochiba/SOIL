@@ -30,17 +30,24 @@ SOIL is a full-stack cultural platform and e-commerce site built for a client in
 | | |
 |---|---|
 | ![Homepage hero](screenshots/home.png) | ![Eagle cinematic scroll](screenshots/home-scroll.png) |
-| *Homepage — cinematic hero with sacred glyph title* | *Scroll experience — eagle landing on baobab (canvas frame sequence)* |
+| *Homepage — cinematic hero with sacred glyph title* | *Scroll experience — canvas frame sequence mid-scrub* |
 
 | | |
 |---|---|
-| ![Studio e-commerce](screenshots/studio.png) | ![Intelligence page](screenshots/intelligence.png) |
-| *Studio — cultural e-commerce store* | *Intelligence — editorial & AI consulting layer* |
+| ![Studio e-commerce](screenshots/studio.png) | ![Cultivate ecosystem page](screenshots/cultivate.png) |
+| *Studio — cultural e-commerce store* | *Cultivate — living network ecosystem view* |
+
+**Dual theme system** — the same page in cinematic dark and archival-parchment light:
 
 | | |
 |---|---|
-| ![Cultivate ecosystem page](screenshots/cultivate.png) | ![Mobile view](screenshots/mobile.png) |
-| *Cultivate — living network ecosystem view* | *Mobile responsive layout* |
+| ![Intelligence dark](screenshots/intelligence.png) | ![Intelligence light](screenshots/intelligence-light.png) |
+| *Intelligence — cinematic dark (default)* | *Intelligence — archival light mode: parchment, bronze rules, engraved watermark numerals* |
+
+| |
+|---|
+| <img src="screenshots/mobile.png" width="320" alt="Mobile view" /> |
+| *Mobile responsive layout* |
 
 ---
 
