@@ -222,7 +222,7 @@ tests/                    # Vitest test suite
 
 ## Acknowledgements
 
-This was a collaborative project. Original concept, design direction, and backend architecture by [chibbss](https://github.com/chibbss). I joined as frontend developer to implement and extend the v3 experience.
+This was a collaborative project with [chibbss](https://github.com/chibbss). I joined as frontend developer to implement the designs and enhance the experience.
 
 ---
 
