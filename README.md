@@ -142,54 +142,6 @@ I joined as the **frontend developer**, responsible for translating the client's
 
 ---
 
-## Getting Started
-
-### Prerequisites
-- Node.js 18+
-- A [Supabase](https://supabase.com) project
-- A [Paystack](https://paystack.com) account (for payments)
-
-### Installation
-
-```bash
-# Clone the repo
-git clone https://github.com/Joshua-Ochiba/SOIL.git
-cd SOIL
-
-# Install dependencies
-npm install
-
-# Set up environment variables
-cp .env.example .env.local
-# Fill in your Supabase, Paystack, and Resend keys
-
-# Start the dev server
-npm run dev
-```
-
-### Available Scripts
-
-```bash
-npm run dev        # Start development server
-npm run build      # Production build
-npm run preview    # Preview production build locally
-npm run test       # Run test suite (Vitest)
-npm run lint       # Lint with ESLint
-```
-
----
-
-## Environment Variables
-
-See [`.env.example`](.env.example) for all required variables. You'll need:
-
-- `VITE_SUPABASE_URL` + `VITE_SUPABASE_ANON_KEY` — from your Supabase project
-- `PAYSTACK_SECRET_KEY` — from Paystack dashboard
-- `RESEND_API_KEY` + `RESEND_FROM_EMAIL` — for transactional emails (optional)
-- `VITE_SENTRY_DSN` — for error monitoring (optional)
-
----
-
 ## Project Structure
 
 ```
